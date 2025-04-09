@@ -7,6 +7,11 @@ function App() {
       <ul>
         {articles.map(article => <li>{article.title}</li>)}
       </ul>
+      <hr />
+      <form action="">
+        <input type="text" />
+        <button>Aggiungi</button>
+      </form>
     </>
   )
 }
