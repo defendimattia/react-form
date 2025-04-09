@@ -11,7 +11,7 @@ function App() {
     event.preventDefault()
 
     if (inputArticle) {
-      
+
       const newArticle = { "id": list.length + 1, "title": inputArticle }
       setList([...list, newArticle])
       console.log(list)
@@ -21,11 +21,20 @@ function App() {
 
   }
 
+  function deleteFunction(idArticle) {
+    const filteredList = list.filter(el => el.id !== idArticle)
+    return setList(filteredList)
+  }
+
   return (
     <>
       <h1>Lista articoli</h1>
       <ul>
-        {list.map(article => <li key={article.id}>{article.title}</li>)}
+        {list.map(article => <li key={article.id}>
+          {article.title}
+          <button onClick={() => deleteFunction(article.id)}>Elimina</button>
+        </li>
+        )}
       </ul>
       <hr />
       <form action="" onSubmit={submitFunction}>
